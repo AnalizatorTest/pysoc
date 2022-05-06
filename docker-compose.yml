@@ -14,10 +14,10 @@ services:
     image: postgres:12.0-alpine
     volumes:
     - pysoc_postgres_data:/var/lib/postgresql/data/
-    environment:
-      - POSTGRES_USER=django_user
-      - POSTGRES_PASSWORD=django_pass
-      - POSTGRES_DB=django_movie_dev
+    ports:
+      - 5555:5432
+    env_file:
+      - ./.env.dev
 
 volumes:
   pysoc_postgres_data:
